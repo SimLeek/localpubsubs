@@ -1,0 +1,14 @@
+# Created by .ignore support plugin (hsz.mobi)
+build/
+dist/
+lib/
+*.egg-info/
+.cache
+.pytest_cache/
+
+.gitignore
+.idea/
+MANIFEST.in
+pyproject.toml
+venv/
+tox.ini
