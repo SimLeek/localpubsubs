@@ -73,10 +73,16 @@ class VariablePub(object):
 
     def get_data(self, blocking=False, timeout=0.0):
         self.__write_lock.acquire(*_args_for_lock(blocking, timeout))
-        self.__write_lock.release()
+        try:
+            self.__write_lock.release()
+        except RuntimeError:
+            pass
         return self.__data
 
     def __set_data(self, new_data, blocking=True, timeout=0.0):
         self.__write_lock.acquire(*_args_for_lock(blocking, timeout))
         self.__data = new_data
-        self.__write_lock.release()
+        try:
+            self.__write_lock.release()
+        except RuntimeError:
+            pass

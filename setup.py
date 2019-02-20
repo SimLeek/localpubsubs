@@ -13,8 +13,7 @@ with open('localpubsub/__init__.py', 'r') as f:
 with open('README.md', 'r', encoding='utf-8') as f:
     readme = f.read()
 
-with open('requirements.txt', 'r', encoding='utf-8') as f:
-    REQUIRES = f.readlines()
+REQUIRES = []
 
 setup(
     name='localpubsub',
