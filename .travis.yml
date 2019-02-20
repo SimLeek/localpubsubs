@@ -1,25 +1,22 @@
 language: python
 cache: pip
-
 python:
 - '2.7'
 - '3.5'
 - '3.6'
-
 install:
 - pip install -r requirements.txt
 - pip install coverage
 - pip install codecov
-
 script:
 - python -m coverage run -a -m unittest discover tests
 - python -m coverage report
 - pip install cibuildwheel==0.10.1
 - cibuildwheel --output-dir wheelhouse
-
 after_success:
-  - codecov
-
+- codecov
 deploy:
   provider: pypi
-  user: "SimLeek"
+  user: SimLeek
+  password:
+    secure: F5LBqwpSpSh3MWZcO6NHf01UhKIzBFONaM8TLEokjuaSjKfxeeYNl3+x7AszSYp33ookO3jkMtWaCdlcXvRL/8K8HIHgRhFzwDLEkuBQOqzK6DypR9Qo5lfHnJrpnlOY74axr5M98y+rCkavE4bWazNiSWasmg/Ug9U0uqu/H87FUfJuUA8YHCOAtzBFVs7ipXQ5l7rtMYAFxL43F18rLUr1HniqMQlpwAgzyIFxShycew1ufiSjSPKaiy6/FQfGh18lYMzRawLpMSpRz1rwC6F0sYMEo4qmi5NuMUEJo83jLWw31f+DJyZ7UC+vAwTiGpLdRRQdyc2g/j90h9gKTNE4QlhOiyC5SXQ7gL65t9z6gAqEz16hWX5pFhCRJ4oELASlwbzohS5Q2jMOaVFcVACOh3jHtItGxVzkRU8FgQrlQ6q+QQF7Sqlx4lqlwwfgNm1pBGRCJQZggTURJi0VcAY+NY/aB/IJqcZ4ua/dHEmUZjYZSXcizTsADFtHyDzu2pL14AGDwXBDrb+d6uIZysnnYAGBZt30751uTRnXlxryT7wyeSdjE3c8bYdZ07f2QundE4k1Op/dWnu4nOF/R6hG1wf4Y/iQdOba2YYBbobIju1Do+45O97NS79t0JIhPNPbWmtka4c3fVWDRAfGqb6x+iZ2N3us8JdpHhnDan8=
